@@ -2,7 +2,10 @@
 
 function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
-  exec "$shome/vendor/nvm/nvm-exec" "${0##*/}" "$@"
+
+  source "$shome/vendor/nvm/nvm.sh" --no-use
+  nvm use --delete-prefix --silent >/dev/null
+  exec "${0##*/}" "$@"
 }
 
 main "$@"
