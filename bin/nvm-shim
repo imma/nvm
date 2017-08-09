@@ -4,7 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
 
   source "$shome/vendor/nvm/nvm.sh" --no-use
-  nvm use --delete-prefix --silent >/dev/null
+  nvm use --silent >/dev/null
   if [[ "$(which node 2>/dev/null || true)" == "$shome/bin/node" ]]; then
     exit 1
   fi
