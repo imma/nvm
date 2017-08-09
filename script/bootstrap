@@ -6,7 +6,6 @@ function main {
 
   block compile gitsubmodule
   (cd "$shome/vendor/nvm" && git reset --hard "v${NVM_VERSION}")
-  ln -vnfs "$shome/vendor/nvm" "${BOARD_PATH}/.nvm"
 }
 
 main "$@"
