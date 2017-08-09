@@ -4,7 +4,9 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  uname -a
+  block compile gitsubmodule
+  chmod 755 "$shome/vendor/nvm/nvm.sh"
+  ln -vnfs "$shome/vendor/nvm" "${BOARD_PATH}/.nvm"
 }
 
 main "$@"
