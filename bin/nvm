@@ -1,1 +1,14 @@
-../vendor/nvm/nvm.sh
+#!/usr/bin/env bash
+
+function require_nvm {
+  source "$shome/vendor/nvm/nvm.sh"
+}
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+
+  require_nvm
+  nvm "$@"
+}
+
+main "$@"

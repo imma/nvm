@@ -4,7 +4,7 @@ function version {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local ver_nvm="0.0.1"
+  local ver_nvm="$(nvm --version 2>/dev/null || true)"
   jq -n --arg nvm "$ver_nvm" '{nvm: $nvm}'
 }
 

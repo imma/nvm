@@ -5,7 +5,7 @@ function main {
   source "$shome/script/profile"
 
   block compile gitsubmodule
-  chmod 755 "$shome/vendor/nvm/nvm.sh"
+  (cd "$shome/vendor/nvm" && git reset --hard "v${NVM_VERSION}")
   ln -vnfs "$shome/vendor/nvm" "${BOARD_PATH}/.nvm"
 }
 
