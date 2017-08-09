@@ -5,6 +5,9 @@ function main {
 
   source "$shome/vendor/nvm/nvm.sh" --no-use
   nvm use --delete-prefix --silent >/dev/null
+  if [[ "$(type node | awk 'NR == 1 { print $4 }')" != "function" ]]; then
+    exit 1
+  fi
   exec "${0##*/}" "$@"
 }
 
