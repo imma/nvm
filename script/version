@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function version {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_nvm="0.0.1"
+  jq -n --arg nvm "$ver_nvm" '{nvm: $nvm}'
+}
+
+version "$@"
