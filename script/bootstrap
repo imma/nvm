@@ -5,10 +5,8 @@ function main {
   source "$shome/script/profile"
 
   git clone -b "v${NVM_VERSION}" git@github.com:creationix/nvm "$shome/vendor/nvm-${NVM_VERSION}" || true
-  ln -nfs "nvm-${NVM_VERSION}" "$shome/vendor/nvm" || {
-    rm -rf "$shome/vendor/nvm"
-    ln -nfs "nvm-${NVM_VERSION}" "$shome/vendor/nvm"
-  }
+  rm -rf "$shome/vendor/nvm"
+  ln -nfs "nvm-${NVM_VERSION}" "$shome/vendor/nvm"
 }
 
 main "$@"
