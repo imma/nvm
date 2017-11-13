@@ -4,8 +4,7 @@ function _nvm_profile {
   local shome="${_nvm_home:="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin::$PATH"
 
-
-  export NVM_DIR="$shome/vendor/nvm"
+  export NVM_DIR="$shome/vendor/nvm-${NVM_VERSION}"
 }
 
 _nvm_profile
