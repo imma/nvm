@@ -4,8 +4,11 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  block compile gitsubmodule
-  (cd "$shome/vendor/nvm" && git reset --hard "v${NVM_VERSION}")
+  git clone -b "v${NVM_VERSION}" git@github.com:creationix/nvm "$shome/vendor/nvm-${NVM_VERSION}" || true
+  ln -nfs "nvm-${NVM_VERSION}" "$shome/vendor/nvm" || {
+    rm -rf "$shome/vendor/nvm"
+    ln -nfs "nvm-${NVM_VERSION}" "$shome/vendor/nvm"
+  }
 }
 
 main "$@"
